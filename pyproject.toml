@@ -1,0 +1,38 @@
+[project]
+name = "commitai"
+version = "0.1.0"
+description = "Um projeto de integração com agentes AI para estudo que incentive o pensamento crítico e mais análise."
+authors = [
+    {name = "Filipe",email = "filipeaugustto22@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "google-genai (>=3.3.0,<4.0.0)"
+]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.pytest]
+pythonpath = ['.']
+addopts = ['-p', 'no:warnings', '--cov=src', '--cov-context=test']
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.2.0,<10.0.0)",
+    "ruff (>=0.17.4,<0.18.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)",
+]
